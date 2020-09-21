@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom'
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import {FaRobot} from 'react-icons/fa';
-import {FcHome,FcInvite} from 'react-icons/fc';
+import {FcHome,FcInvite,FcRules} from 'react-icons/fc';
 import {VscSettings} from 'react-icons/vsc';
+import {DiCodeBadge} from 'react-icons/di';
 
 class Navigationbar extends React.Component {
   render() {
@@ -40,16 +41,18 @@ class Navigationbar extends React.Component {
         <FaRobot className="mr-2"/>
          Neon - {this.props.title || "Dashboard"}
         </Navbar.Brand>
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav2" />
+        <Navbar.Collapse id="responsive-navbar-nav2">
           <Nav className="mr-auto nav-tabs">
-            <Nav.Link ><Link style={{color: "gray"}} to="/"><FcHome className="mr-2"/>Home</Link></Nav.Link>
-            <Nav.Link><Link style={{color: "gray"}} to="/invite"><FcInvite className="mr-2"/>Invite</Link></Nav.Link>
-            <NavDropdown title="Support" id="basic-nav-dropdown">
-              <NavDropdown.Item><Link style={{color: "gray"}} to="/teszt">Action</Link></NavDropdown.Item>
-              <NavDropdown.Item><Link style={{color: "gray"}} to="/teszt">Another action</Link></NavDropdown.Item>
-              <NavDropdown.Item><Link style={{color: "gray"}} to="/teszt">Something</Link></NavDropdown.Item>
+            <Link className="nav-link" to="/"><FcHome className="mr-2"/>Home</Link>
+            <Link className="nav-link" to="/invite"><FcInvite className="mr-2"/>Invite</Link>
+            <Link className="nav-link" to="/commands"><FcRules className="mr-2"/>Commands</Link>
+            <NavDropdown title={"👩‍💻Support"} id="basic-nav-dropdown">
+              <Link className="dropdown-item" to="/teszt"><DiCodeBadge className ="mr-2"/>Developers</Link>
+              <Link className="dropdown-item" to="/teszt">Another action</Link>
+              <Link className="dropdown-item" to="/teszt">Something</Link>
               <NavDropdown.Divider />
-              <NavDropdown.Item><Link style={{color: "gray"}} to="/teszt">Separated link</Link></NavDropdown.Item>
+              <Link className="dropdown-item" to="/teszt">Separated link</Link>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
